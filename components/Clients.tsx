@@ -1,8 +1,14 @@
 "use client";
 
+// Clients — two-part section: scrolling marquee of client logos (top)
+// and a 2-column grid of case study cards (bottom).
+// The marquee is achieved by duplicating the array and animating `translateX(-50%)`
+// so it loops seamlessly without JavaScript.
+
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
 
+// Placeholder client names — replace with actual logos/names when available
 const clientNames = ["Innovate Corp", "TechFlow", "DataPrime", "NexusAI", "Globex", "Synergy", "FutureScale", "OmniLogic"];
 
 export default function Clients() {
@@ -13,7 +19,7 @@ export default function Clients() {
 
   return (
     <section id="clients" style={{ padding: "120px 0", background: "#080808", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <p ref={label1.ref} style={{ ...label1.style, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "44px" }}>{t.clients.label1}</p>
         <div style={{ overflow: "hidden", borderTop: "1px solid #1E1E1E", borderBottom: "1px solid #1E1E1E", padding: "26px 0", marginBottom: "96px" }}>
           <div style={{ display: "flex", gap: "72px", animation: "marquee 18s linear infinite", whiteSpace: "nowrap" }}>

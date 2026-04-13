@@ -1,5 +1,10 @@
 "use client";
 
+// Solutions — interactive accordion-style section.
+// Left column: clickable list of solution items; active item gets a gold left border.
+// Right column: detail panel that updates when a different item is selected.
+// `active` state holds the id of the currently selected solution ("01", "02", …).
+
 import { useState } from "react";
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
@@ -12,7 +17,7 @@ export default function Solutions() {
 
   return (
     <section id="solutions" style={{ padding: "120px 0", background: "#111111", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <p ref={label.ref} style={{ ...label.style, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "16px" }}>{t.solutions.label}</p>
         <h2 ref={title.ref} style={{ ...title.style, fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#F5F5F5", marginBottom: "64px" }}>
           {t.solutions.title1}<br /><span style={{ color: "#C9A84C" }}>{t.solutions.title2}</span>

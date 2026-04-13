@@ -1,5 +1,9 @@
 "use client";
 
+// Process — four-step timeline with a decorative horizontal connector line.
+// The connector line is hidden on mobile (≤900 px) because it doesn't make
+// visual sense in a 2-column or 1-column layout.
+
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -11,7 +15,7 @@ export default function Process() {
 
   return (
     <section style={{ padding: "120px 0", background: "#080808", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <p ref={label.ref} style={{ ...label.style, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "16px" }}>{t.process.label}</p>
         <h2 ref={title.ref} style={{ ...title.style, fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#F5F5F5", marginBottom: "64px" }}>{t.process.title}</h2>
         <div style={{ position: "relative" }}>

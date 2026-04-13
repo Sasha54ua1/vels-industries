@@ -1,9 +1,14 @@
 "use client";
 
+// Header — fixed navigation bar with scroll-aware background blur,
+// multilingual switcher (УКР / РУС / ENG), and a responsive mobile burger menu.
+// Background becomes opaque + blurred after the user scrolls 40 px.
+
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
 import { Lang } from "@/lib/i18n";
 
+// Available UI languages with their display labels
 const LANGS: { code: Lang; label: string }[] = [
   { code: "uk", label: "УКР" },
   { code: "ru", label: "РУС" },
@@ -36,7 +41,7 @@ export default function Header() {
       backdropFilter: scrolled ? "blur(14px)" : "none",
       borderBottom: scrolled ? "1px solid #1E1E1E" : "1px solid transparent",
     }}>
-      <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "72px" }}>
+      <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "72px" }}>
         {/* Logo */}
         <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "5px" }}>
           <span style={{ fontSize: "22px", fontWeight: 700, color: "#F5F5F5", letterSpacing: "0.08em" }}>VELS</span>

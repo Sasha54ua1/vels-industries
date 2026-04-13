@@ -1,5 +1,9 @@
 "use client";
 
+// Contact — split layout: description + contact links (left), form (right).
+// On submit the form is replaced with a success message — no backend integration yet.
+// The `company` field is optional (required={field !== "company"}) — all others are required.
+
 import { useState } from "react";
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
@@ -14,7 +18,7 @@ export default function Contact() {
 
   return (
     <section id="contact" style={{ padding: "120px 0", background: "#080808", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "100px", alignItems: "start" }} className="contact-grid">
           <div ref={left.ref} style={left.style}>
             <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "24px" }}>{t.contact.label}</p>

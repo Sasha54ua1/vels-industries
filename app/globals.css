@@ -1,15 +1,17 @@
+/* Google Fonts must be imported BEFORE Tailwind to avoid CSS ordering issues */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 @import "tailwindcss";
 
+/* Design tokens — single source of truth for the black/white/gold palette */
 :root {
-  --bg: #080808;
-  --surface: #111111;
-  --border: #1E1E1E;
-  --gold: #C9A84C;
-  --gold-light: #E8C97A;
-  --white: #F5F5F5;
-  --muted: #6B6B6B;
+  --bg: #080808;        /* main background */
+  --surface: #111111;   /* elevated surfaces (sections, cards) */
+  --border: #1E1E1E;    /* subtle dividers */
+  --gold: #C9A84C;      /* primary accent */
+  --gold-light: #E8C97A;/* hover state for gold elements */
+  --white: #F5F5F5;     /* primary text */
+  --muted: #6B6B6B;     /* secondary / placeholder text */
 }
 
 * {
@@ -47,14 +49,16 @@ body {
   border-radius: 2px;
 }
 
-.container {
+/* .wrap — named "wrap" (not "container") to avoid conflict with Tailwind v4's
+   built-in `container` utility class which has different behaviour */
+.wrap {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
 @media (max-width: 768px) {
-  .container {
+  .wrap {
     padding: 0 20px;
   }
 }
@@ -67,6 +71,8 @@ body {
   font-weight: 500;
 }
 
+/* .fade-up / .fade-up.visible are kept for legacy reference.
+   Active animations use the useFadeIn hook (inline styles) instead. */
 .fade-up {
   opacity: 0;
   transform: translateY(32px);

@@ -1,5 +1,9 @@
 "use client";
 
+// Footer — site-wide footer with logo, navigation links, and contact info.
+// Marked "use client" because it reads from LanguageContext (client-only React context).
+// Copyright year is calculated dynamically so it never needs manual updating.
+
 import { useLang } from "@/lib/LanguageContext";
 
 export default function Footer() {
@@ -8,7 +12,7 @@ export default function Footer() {
 
   return (
     <footer style={{ background: "#111111", borderTop: "1px solid #1E1E1E", padding: "60px 0 40px" }}>
-      <div className="container">
+      <div className="wrap">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "48px", flexWrap: "wrap", gap: "40px" }} className="footer-top">
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "12px" }}>

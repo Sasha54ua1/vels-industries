@@ -1,5 +1,9 @@
 "use client";
 
+// WhatWeDo — three service cards rendered in a responsive grid.
+// Cards lift 4 px and highlight their border on hover for interactivity.
+// On mobile (<900 px) the grid collapses to a single column via inline <style>.
+
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -10,7 +14,7 @@ export default function WhatWeDo() {
 
   return (
     <section id="what-we-do" style={{ padding: "120px 0", background: "#111111", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <p ref={label.ref} style={{ ...label.style, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "16px" }}>{t.whatWeDo.label}</p>
         <h2 ref={title.ref} style={{ ...title.style, fontSize: "clamp(34px, 5vw, 62px)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.03em", color: "#F5F5F5", marginBottom: "64px" }}>
           {t.whatWeDo.title1}<br /><span style={{ color: "#C9A84C" }}>{t.whatWeDo.title2}</span>

@@ -1,5 +1,11 @@
 "use client";
 
+// Hero — full-viewport landing section with interactive Three.js background.
+// Renders a gold wireframe icosahedron + inner metallic sphere + particle cloud.
+// Mouse movement creates a parallax tilt effect.
+// renderer.setSize(W, H, false) — the `false` prevents Three.js from overriding
+// the canvas CSS dimensions, which would break the layout.
+
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useLang } from "@/lib/LanguageContext";
@@ -44,6 +50,7 @@ export default function Hero() {
     const onResize = () => { const w=window.innerWidth,h=window.innerHeight; camera.aspect=w/h; camera.updateProjectionMatrix(); renderer.setSize(w,h,false); };
     window.addEventListener("resize", onResize);
 
+    // Use performance.now() for animation timing — THREE.Clock is deprecated
     let id: number; const t0 = performance.now();
     const loop = () => {
       id = requestAnimationFrame(loop);
@@ -61,7 +68,7 @@ export default function Hero() {
     <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#080808" }}>
       <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }} />
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 80% at 72% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)", zIndex: 2, pointerEvents: "none" }} />
-      <div className="container" style={{ position: "relative", zIndex: 3, paddingTop: "80px" }}>
+      <div className="wrap" style={{ position: "relative", zIndex: 3, paddingTop: "80px" }}>
         <div style={{ maxWidth: "700px", paddingLeft: "3%" }}>
           <p style={{ fontSize: "11px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "28px" }}>{t.hero.label}</p>
           <h1 style={{ fontSize: "clamp(50px, 6.5vw, 108px)", fontWeight: 700, lineHeight: 1.03, letterSpacing: "-0.03em", color: "#F5F5F5", marginBottom: "28px" }}>

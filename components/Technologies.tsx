@@ -1,8 +1,13 @@
 "use client";
 
+// Technologies — 4-column grid showcasing the AI/infra stack.
+// Tech data is kept as a static constant (not in i18n) because technology names
+// don't need translation — they're product/brand names.
+
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
 
+// Static list of technologies — names are not translated
 const techs = [
   { name: "OpenAI", desc: "GPT-4, Whisper, DALL·E" },
   { name: "LangChain", desc: "Agent orchestration" },
@@ -20,7 +25,7 @@ export default function Technologies() {
 
   return (
     <section style={{ padding: "100px 0", background: "#111111", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "52px", flexWrap: "wrap", gap: "20px" }}>
           <div>
             <p ref={label.ref} style={{ ...label.style, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "12px" }}>{t.technologies.label}</p>

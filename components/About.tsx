@@ -1,5 +1,8 @@
 "use client";
 
+// About — company stats (left column) + narrative text (right column).
+// Each stat card fades in with a staggered delay for a cascading effect.
+
 import { useFadeIn } from "./useFadeIn";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -10,7 +13,7 @@ export default function About() {
 
   return (
     <section id="about" style={{ padding: "120px 0", background: "#080808", borderTop: "1px solid #1E1E1E" }}>
-      <div className="container">
+      <div className="wrap">
         <p ref={label.ref} style={{ ...label.style, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A84C", fontWeight: 500, marginBottom: "60px" }}>{t.about.label}</p>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }} className="about-grid">
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
